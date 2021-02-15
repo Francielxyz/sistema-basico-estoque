@@ -1,18 +1,21 @@
 package entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Client {
 
+	private static final SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+
 	private String name;
 	private String email;
-	private Date birthDAte;
+	private Date birthDate;
 
 	public Client(String name, String email, Date birthDAte) {
 		super();
 		this.name = name;
 		this.email = email;
-		this.birthDAte = birthDAte;
+		this.birthDate = birthDAte;
 	}
 
 	public String getName() {
@@ -32,11 +35,16 @@ public class Client {
 	}
 
 	public Date getBirthDAte() {
-		return birthDAte;
+		return birthDate;
 	}
 
 	public void setBirthDAte(Date birthDAte) {
-		this.birthDAte = birthDAte;
+		this.birthDate = birthDAte;
+	}
+
+	@Override
+	public String toString() {
+		return name + " (" + sdf.format(birthDate) + ") - " + email;
 	}
 
 }
